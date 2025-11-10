@@ -1,21 +1,21 @@
-PREFIX ?= $(HOME)/bin
+PREFIX ?= $(CURDIR)/bin
 CXX ?= g++
 CXXFLAGS ?= -std=c++17 -O2 -Wall
 LDFLAGS ?= -lz
 SRC = AdaptClean.cpp
-TARGET = AdaptClean
+TARGET = $(PREFIX)/AdaptClean
 
-.PHONY: all install clean
+.PHONY: all clean
 
+# Default target: compile binary directly in bin/
 all: $(TARGET)
 
+# Build rule
 $(TARGET): $(SRC)
+	@mkdir -p $(PREFIX)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
+	@echo "Built $(TARGET)"
 
-install: $(TARGET)
-	mkdir -p $(PREFIX)
-	cp $(TARGET) $(PREFIX)
-	@echo "Installed $(TARGET) to $(PREFIX)"
-
+# Clean rule
 clean:
 	rm -f $(TARGET)
