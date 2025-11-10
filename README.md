@@ -36,5 +36,5 @@ Notes:
 - Trimming is applied only to reads whose length equals the given sequencing cycle.
 
 
-Author: Bilal Sharif <bilal.bioinfo@gmail.com>
+Contact: Bilal Sharif <bilal.bioinfo@gmail.com>
 
