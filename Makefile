@@ -7,14 +7,14 @@ TARGET = AdaptClean
 
 .PHONY: all install clean
 
-all: $(TARGET) install
+all: $(TARGET)
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
 
 install: $(TARGET)
-	mkdir -p "$(PREFIX)"
-	cp $(TARGET) "$(PREFIX)"
+	mkdir -p $(PREFIX)
+	cp $(TARGET) $(PREFIX)
 	@echo "Installed $(TARGET) to $(PREFIX)"
 
 clean:
